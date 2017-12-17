@@ -2,22 +2,16 @@
 <?php
 require ("functions.php");
 require ("vpconfig.php");
-	$image = "";
-	$user = "test";
-	$description = "";
-	
-if(isset ($_POST["image"])){
-	$image = $_POST["image"];
 
+	$image = "test";
+	$user = "test";
+	$description = "test";
 	
+if(isset ($_POST["image"]) && isset ($_POST["description"])){
+	$image = $_POST["image"];
+	$description = $_POST["description"];
+	upload($user, $image, $description);
 }
-	if(isset($_POST["description"])){
-		
-		$description = $_POST["description"];
-		echo $description;
-		
-		upload($user, $image, $description);
-	}
 		echo $description;
 		echo $image;
 ?>
@@ -63,10 +57,6 @@ if(isset ($_POST["image"])){
 <p>Lae pilti ülesse!</p>
 <form method = "POST">
 	<input type = "file" name = "image"/>
-	<input type = "Submit" value = "lae ules"/>
-</form>
-<br></br>
-<form method = "POST">
 	<input type = "text" name = "description"/>
 	<input type = "Submit" value = "lae ules"/>
 </form>
