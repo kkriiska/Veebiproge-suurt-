@@ -18,6 +18,19 @@
 		$mysqli->close();
 	}
 	
+	function display($email){
+		$mysqli = new mysqli ($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("SELECT image FROM image WHERE user = ?");
+				echo $mysqli->error;
+		$stmt->bind_param("s", $email);
+		$stmt->execute();
+		$stmt->bind_result($image);
+		$stmt->close();
+		$mysqli->close();
+		return $image;
+
+	}
+	
 	function signUp($firstname, $lastname, $gender, $email, $password, $deleted){
 		$notice="";
 		$mysqli = new mysqli ($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);

@@ -6,14 +6,14 @@ require ("vpconfig.php");
 	$image = "test";
 	$user = "test";
 	$description = "test";
+	$displayImage = display($user);
 	
 if(isset ($_POST["image"]) && isset ($_POST["description"])){
 	$image = $_POST["image"];
 	$description = $_POST["description"];
 	upload($user, $image, $description);
 }
-		echo $description;
-		echo $image;
+echo $displayImage;
 ?>
 <html lang="en">
 <head>
@@ -39,10 +39,10 @@ if(isset ($_POST["image"]) && isset ($_POST["description"])){
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
         <li><a href="#">Minu profiil</a></li>
         <li><a href="#">Projects</a></li>
-        <li><a href="#">Galerii</a></li>
+        <li class="active"><a href="#">Galerii</a></li>
 		<li><a href="#">Muusika</a></li>
 
       </ul>
