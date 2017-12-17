@@ -60,37 +60,45 @@
 		return $notice;
 	}
 	
-	function GetAllUsers($find) {
+	function sendComment($email, $comment) {
+		$mysqli = new mysqli ($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		echo $mysqli->error;
+		$stmt = $mysqli->prepare("INSERT INTO music_stuff(email, message) VALUES (?,?)"); 
+		$stmt->bind_param("ss", $email, $comment);
+		$stmt->execute();
+		echo $mysqli->error;
+		$stmt->close();
+		$mysqli->close();
+		
+	}
+	
+	function getAllDataChat($find) {
+		
 		$notice="";
 		$mysqli = new mysqli ($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 		echo $mysqli->error;
-		$stmt = $mysqli->prepare("SELECT email, eesnimi, perkonnanimi, sugu FROM user_sample WHERE deleted = ?");
+		$stmt = $mysqli->prepare("SELECT email, message, posted FROM music_stuff WHERE email = ?"); 
 		$stmt->bind_param("i", $find);
-		$stmt->bind_result($email, $eesnimi, $perkonnanimi, $sugu);
+		$stmt->bind_result($email, $message, $posted);
 		$stmt->execute();
 		
 		$results = array();
 		
-		while ($stmt->fetch()){
-			if($sugu == 1){
-				$sugu = "Mees";
-			}
-			if($sugu == 2){
-				$sugu = "Naine";
-			}
-			if($sugu == 3){
-				$sugu = "Muu";
-			}
+		
+		while ($stmt->fetch()) {
+			
 			$info = new StdClass();
+			$info->message = $message;
+			$info->posted = $posted;
 			$info->email = $email;
-			$info->eesnimi = $eesnimi;
-			$info->perkonnanimi = $perkonnanimi;
-			$info->sugu = $sugu;
+			
 			
 			array_push($results, $info);
+			
 		}
-		$stmt->close();
+		
 		return $results;
+	
 	}
 
 ?>

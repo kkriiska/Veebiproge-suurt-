@@ -7,6 +7,7 @@
 		header("Location: login.php");
 		exit();
 	}
+	$email = $_SESSION["userId"];
 	
 	if (isset($_GET["logout"])) {
 		
@@ -17,37 +18,6 @@
 	}
 	
 	
-	function getAllDataChat() {
-		
-
-		$stmt = $this->connection->prepare("
-			SELECT message, posted, email
-			FROM chatRoom
-			ORDER BY posted DESC
-			LIMIT 20
-			
-		");
-		$stmt->bind_result($message, $posted, $emailD);
-		$stmt->execute();
-		
-		$results = array();
-		
-		
-		while ($stmt->fetch()) {
-			
-			$info = new StdClass();
-			$info->message = $message;
-			$info->posted = $posted;
-			$info->email = $emailD;
-			
-			
-			array_push($results, $info);
-			
-		}
-		
-		return $results;
-	
-	}
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +48,7 @@
         <li class="active"><a href="data.php">Esileht</a></li>
         <li><a href="#">Minu profiil</a></li>
         <li><a href="#">Projects</a></li>
-        <li><a href="#">Galerii</a></li>
+        <li><a href="gallery.php">Galerii</a></li>
 		<li><a href="music.php">Muusika</a></li>
 
       </ul>
@@ -89,38 +59,18 @@
   </div>
 </nav>
 <?php
-require ("functions.php");
-if (!isset($_SESSION["userId"])) {
-	header("Location: data.php");}
 
 
 	$email = $_SESSION["userEmail"];
-	$messageError = "";
-	$post = 1;
-	$deleted = 1;
+	$message = "";
 
 
-	if (isset ($_POST["message"]))
-		{
-		if(empty($_POST["message"])){
-			$messageError = "Field must be filled";}
-		}
-
-	if (isset ($_POST["message"]))
-		{
-		if(strlen($_POST["message"])>300){
-			$messageError = "Message too long, MAX 300";}
-		}
-
-	if(isset ($_POST["message"]) &&
-		$messageError == ""){
-		$date = date("Y-m-d h:i:sa");
+	if(isset ($_POST["message"])){
 		$message = $_POST["message"];
-		if ($post == 1){
-			$data->dataentryChatroom ($Helper->cleanInput($email), $Helper->cleanInput($message), $Helper->cleanInput($date));}
-		}
+		//echo $message;
+		sendComment($email, $message);
 
-
+	}
 ?>
 
 <link rel="stylesheet" type="text/css" href="style.css">
@@ -133,7 +83,7 @@ if (!isset($_SESSION["userId"])) {
 				<div class="row" id="ChatBoxEntry" style="text-align:center">
 					<textarea name="message" id="message" style="
 						color:Black;height:100px;width:50%;display:block;margin-left:auto;margin-right:auto;margin-bottom:20px">
-					</textarea> <?php echo $messageError ?>
+					</textarea> 
 				</div>
 				<div class="row">
 					<input class="btn btn-success btn-block" style="width:25%;margin-left:auto;margin-right:auto;" type="submit" value="Submit" id = "Submit">
@@ -145,7 +95,7 @@ if (!isset($_SESSION["userId"])) {
 	<div style="overflow-x:auto">
 		<?php 
 			
-		$view = $data->getAllDataChat();
+		$view = getAllDataChat($email);
 
 			$html = "<table class='table table-bordered'>";
 			
@@ -167,7 +117,7 @@ if (!isset($_SESSION["userId"])) {
 				
 			$html .= "</table>";
 			
-			echo $html;
+			echo nl2br($html);
 			
 		?>
 	</div>
