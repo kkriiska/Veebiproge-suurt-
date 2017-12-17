@@ -4,6 +4,20 @@
 	
 	session_start();
 	
+	function upload($user, $image, $description){
+		$mysqli = new mysqli ($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("INSERT INTO image (image, description, user) VALUES(?, ?, ?)";
+		echo $mysqli->error;
+		$stmt->bind_param("sss", $image, $description, $user);
+				if ($stmt->execute()){
+			echo "\n Õnnestus!";
+		} else {
+			echo "\n Tekkis viga : " .$stmt->error;
+		}
+		$stmt->close();
+		$mysqli->close();
+	}
+	
 	function signUp($firstname, $lastname, $gender, $email, $password, $deleted){
 		$notice="";
 		$mysqli = new mysqli ($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
