@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <?php
 require ("functions.php");
+require ("vpconfig.php");
 	$image = "";
-	$user = "";
+	$user = "test";
 	$description = "";
 	
 if(isset ($_POST["image"])){
 	$image = $_POST["image"];
-}
 
+	
+}
+	if(isset($_POST["description"])){
+		
+		$description = $_POST["description"];
+		echo $description;
+		
+		upload($user, $image, $description);
+	}
+		echo $description;
+		echo $image;
 ?>
 <html lang="en">
 <head>
@@ -52,9 +63,12 @@ if(isset ($_POST["image"])){
 <p>Lae pilti ülesse!</p>
 <form method = "POST">
 	<input type = "file" name = "image"/>
-	<input class = "btn btn-success btn-block"/>
-	
-	
+	<input type = "Submit" value = "lae ules"/>
+</form>
+<br></br>
+<form method = "POST">
+	<input type = "text" name = "description"/>
+	<input type = "Submit" value = "lae ules"/>
 </form>
 </div>
 
