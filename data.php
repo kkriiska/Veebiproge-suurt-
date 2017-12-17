@@ -38,11 +38,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand" href="data.php">Logo</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Esileht</a></li>
+        <li class="active"><a href="data.php">Esileht</a></li>
         <li><a href="myprofile.php">Minu profiil</a></li>
         <li><a href="#">Projects</a></li>
         <li><a href="#">Galerii</a></li>
