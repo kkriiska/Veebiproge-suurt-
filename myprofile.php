@@ -15,8 +15,12 @@
 		header("Location: login.php");
 		exit();
 	}
+	
+	
+	
+	
+	
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +46,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Esileht</a></li>
+        <li class="active"><a href="data.php">Esileht</a></li>
         <li><a href="myprofile.php">Minu profiil</a></li>
         <li><a href="#">Projects</a></li>
         <li><a href="#">Galerii</a></li>
@@ -55,25 +59,6 @@
     </div>
   </div>
 </nav>
-  
-<div class="container-fluid text-center">    
-  <div class="row content">
-    <div class="col-sm-2 sidenav">
-    </div>
-    <div class="col-sm-8 text-left"> 
-      <h1>Tere tulemast!</h1>
-      <p>See leht on loodud selleks, et hoida enda porfooli jaoks vajalikke asju. Kui midagi oleks vaja lisada oma protfooliosse siis ma lisan selle siia ning hiljem saab korralikult panna porfooliosse. Lejht on vajalik ka selleks, et kui peaks olema olukord kus ma pean näitama oma portfooliot ja mu kõige uuemad tööd ei ole sinna ülespandud siis on neid hea näidata kuskil ilusas kohas tööandjale.</p>
-      <hr>
-	  <div class="deep-text">
-		<h3>Näidake mulle inimest, kes pole kordagi ühtegi viga teinud, ja ma näitan teile inimest, kes pole kunagi ka midagi erilist saavutanud.</h3>
-		<p></p>
-	  </div>
-    </div>
-    <div class="col-sm-2 sidenav">
-    </div>
-  </div>
-</div>
-
 <footer class="container-fluid text-center">
   <p>Karolin Kriiska if16 & Tatjana Kuznetsova if15</p>
 </footer>
