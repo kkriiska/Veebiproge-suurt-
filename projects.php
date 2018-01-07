@@ -1,20 +1,12 @@
-<!DOCTYPE html>
 <?php
 require ("functions.php");
 require ("vpconfig.php");
 
-	$image = "test";
-	$user = "test";
-	$description = "test";
-	$displayImage = display($user);
-	
-if(isset ($_POST["image"]) && isset ($_POST["description"])){
-	$image = $_POST["image"];
-	$description = $_POST["description"];
-	upload($user, $image, $description);
-}
-echo $displayImage;
+
+
 ?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Esileht</title>
@@ -39,8 +31,8 @@ echo $displayImage;
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="data.php">Esileht</a></li>
-        <li><a href="projects.php">Projects</a></li>
-        <li class="active"><a href="#">Galerii</a></li>
+        <li class="active"><a href="projects.php">Projects</a></li>
+        <li><a href="gallery.php">Galerii</a></li>
 		<li><a href="music.php">Muusika</a></li>
 
       </ul>
@@ -52,12 +44,6 @@ echo $displayImage;
 </nav>
   
 <div class="container-fluid text-center">    
-<p>Lae pilti ülesse!</p>
-<form method = "POST">
-	<input type = "file" name = "image"/>
-	<input type = "text" name = "description"/>
-	<input type = "Submit" value = "lae ules"/>
-</form>
 </div>
 
 <footer class="container-fluid text-center">
@@ -66,3 +52,4 @@ echo $displayImage;
 
 </body>
 </html>
+

@@ -1,7 +1,6 @@
 <?php
 	require("vpconfig.php");
 	require("functions.php");
-	//require("style_login.css");
 	
 	$signupFirstname = "";
 	$signupLastname = "";
@@ -102,8 +101,8 @@
 		<meta charset ="utf-8">
 		<title>Sisselogimine ja kasutaja loomine</title>
 </head>
-<body>
-	<h1>Logi sisse!</h1>
+<body align="center">
+	<h1 style="color:blue;">Logi sisse!</h1>
 	<form method="POST">
 		<label>Kasutajanimi (Email)</label>
 		<input name="loginEmail" type="email" placeholder= "Email@mail.ee" value="<?php echo $loginEmail; ?>"><?php echo $loginEmailError ?>
