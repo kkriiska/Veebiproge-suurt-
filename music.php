@@ -41,15 +41,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="data.php">Logo</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="data.php">Esileht</a></li>
-        <li><a href="#">Minu profiil</a></li>
+        <li><a href="data.php">Esileht</a></li>
         <li><a href="#">Projects</a></li>
         <li><a href="gallery.php">Galerii</a></li>
-		<li><a href="music.php">Muusika</a></li>
+		<li class = "active"><a href="music.php">Muusika</a></li>
 
       </ul>
       <ul class="nav navbar-nav navbar-right">

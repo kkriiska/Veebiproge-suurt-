@@ -35,15 +35,13 @@ echo $displayImage;
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Minu profiil</a></li>
+        <li><a href="data.php">Esileht</a></li>
         <li><a href="#">Projects</a></li>
         <li class="active"><a href="#">Galerii</a></li>
-		<li><a href="#">Muusika</a></li>
+		<li><a href="music.php">Muusika</a></li>
 
       </ul>
       <ul class="nav navbar-nav navbar-right">

@@ -47,9 +47,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="data.php">Esileht</a></li>
-        <li><a href="myprofile.php">Minu profiil</a></li>
         <li><a href="#">Projects</a></li>
-        <li><a href="#">Galerii</a></li>
+        <li><a href="gallery.php">Galerii</a></li>
 		<li><a href="music.php">Muusika</a></li>
 
       </ul>

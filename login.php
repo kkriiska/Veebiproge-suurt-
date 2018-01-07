@@ -1,6 +1,7 @@
 <?php
 	require("vpconfig.php");
 	require("functions.php");
+	//require("style_login.css");
 	
 	$signupFirstname = "";
 	$signupLastname = "";

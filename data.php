@@ -38,14 +38,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="data.php">Logo</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="data.php">Esileht</a></li>
-        <li><a href="myprofile.php">Minu profiil</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Galerii</a></li>
+        <li><a href="projects.php">Projects</a></li>
+        <li><a href="gallery.php">Galerii</a></li>
 		<li><a href="music.php">Muusika</a></li>
 
       </ul>
@@ -61,7 +59,7 @@
     <div class="col-sm-2 sidenav">
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1>Tere tulemast!</h1>
+      <h1>Tere tulemast! <?php echo $_SESSION["userEmail"]  ?></h1>
       <p>See leht on loodud selleks, et hoida enda porfooli jaoks vajalikke asju. Kui midagi oleks vaja lisada oma protfooliosse siis ma lisan selle siia ning hiljem saab korralikult panna porfooliosse. Lejht on vajalik ka selleks, et kui peaks olema olukord kus ma pean näitama oma portfooliot ja mu kõige uuemad tööd ei ole sinna ülespandud siis on neid hea näidata kuskil ilusas kohas tööandjale.</p>
       <hr>
 	  <div class="deep-text">
