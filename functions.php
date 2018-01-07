@@ -76,7 +76,7 @@
 	function sendComment($email, $comment) {
 		$mysqli = new mysqli ($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 		echo $mysqli->error;
-		$stmt = $mysqli->prepare("INSERT INTO music_stuff(email, message) VALUES (?,?)"); 
+		$stmt = $mysqli->prepare("INSERT INTO music_stuff(email, message, deleted) VALUES (?,?, 0)"); 
 		$stmt->bind_param("ss", $email, $comment);
 		$stmt->execute();
 		echo $mysqli->error;
@@ -84,15 +84,28 @@
 		$mysqli->close();
 		
 	}
+
+	function deleteComment($email, $message){
+		$mysqli = new mysqli ($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		echo $mysqli->error;
+		$stmt = $mysqli->prepare("UPDATE music_stuff SET deleted = 1 WHERE email = ? AND message = ?"); 
+		$stmt->bind_param("si", $email, $message);
+		$stmt->execute();
+		echo $mysqli->error;
+		$stmt->close();
+		$mysqli->close();
+
+
+	}
 	
 	function getAllDataChat($find) {
 		
 		$notice="";
 		$mysqli = new mysqli ($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 		echo $mysqli->error;
-		$stmt = $mysqli->prepare("SELECT email, message, posted FROM music_stuff WHERE email = ?"); 
+		$stmt = $mysqli->prepare("SELECT email, message, posted, id FROM music_stuff WHERE email = ? AND deleted = 0 LIMIT 10"); 
 		$stmt->bind_param("i", $find);
-		$stmt->bind_result($email, $message, $posted);
+		$stmt->bind_result($email, $message, $posted, $id);
 		$stmt->execute();
 		
 		$results = array();
@@ -104,7 +117,7 @@
 			$info->message = $message;
 			$info->posted = $posted;
 			$info->email = $email;
-			
+			$info->id = $id;
 			
 			array_push($results, $info);
 			

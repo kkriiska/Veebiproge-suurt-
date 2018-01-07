@@ -18,8 +18,8 @@
 	$signupEmailError = "*";
 	$signupPasswordError = "*";
 	
-	$loginEmailError = "*";
-	$loginPasswordError = "*";
+	$loginEmailError = "Email";
+	$loginPasswordError = "Password";
 	
 	if(isset ($_POST["loginEmail"])){
 		if(empty ($_POST["loginEmail"])){
@@ -100,25 +100,30 @@
 <head>
 		<meta charset ="utf-8">
 		<title>Sisselogimine ja kasutaja loomine</title>
+		<link rel="stylesheet" href="style_login.css">
 </head>
-<body align="center">
-	<h1 style="color:blue;">Logi sisse!</h1>
+<body align="center" style="background-color:gainsboro;">
+	<div class="login" > 
+	<h1>Logi sisse!</h1>
+	</div>
 	<form method="POST">
-		<label>Kasutajanimi (Email)</label>
-		<input name="loginEmail" type="email" placeholder= "Email@mail.ee" value="<?php echo $loginEmail; ?>"><?php echo $loginEmailError ?>
+		<div class="login_person">
+		<input name="loginEmail" type="email" placeholder= <?php echo $loginPasswordError; ?> value="<?php echo $loginEmail; ?>">
 		<br><br>
 		<input name ="loginPassword" type="password" placeholder ="Parool"><?php echo $loginPasswordError ?>
 		<br><br>
-		<input type ="submit" value"Logi sisse">
+		<input type ="submit" value="Logi sisse">
+		</div>
 	</form>
 	
+	<div class="signin">
 	<h1>Loo kasutaja</h1>
+	</div>
 	<form method="POST">
-		<label>Eesnimi </label>
-		<input name="signupFirstname" type="text" ><?php echo $signupFirstnameError ?>
+		<div class="signin_person">
+		<input name="signupFirstname" placeholder="Eesnimi" type="text" ><?php echo $signupFirstnameError ?>
 		<br><br>
-		<label>Perekonnanimi </label>
-		<input name="signupLastname" type="text" ><?php echo $signupLastnameError ?>
+		<input name="signupLastname" placeholder="Perekonnanimi" type="text" ><?php echo $signupLastnameError ?>
 		<br><br>
 		<label>Sugu</label><?php echo $genderError ?>
 		<br><br>
@@ -126,14 +131,19 @@
 		<input type="radio" name="gender" value="2" ><label>Naine</label>
 		<input type="radio" name="gender" value="0" checked="checked" ><label>Muu</label>
 		<br><br>
-		<label>Kasutajanimi (E-post)</label>
-		<input name="signupEmail" type="email"><?php echo $signupEmailError ?>
+		<input name="signupEmail" placeholder="Email" type="email"><?php echo $signupEmailError ?>
 		<br><br>
-		<input name="signupPassword" placeholder="Salasõna" type="password"><?php echo $signupPasswordError ?>
+		<input name="signupPassword" placeholder="Parool" type="password"><?php echo $signupPasswordError ?>
 		<br><br>	
 
-		<input type= "submit" value"Loo kasutaja">
+		<input type= "submit" value="Loo kasutaja">
+		</div>
 	</form>
+	<footer class="footer_text">
+
+	<p>Karolin Kriiska if16 & Tatjana Kuznetsova if15</p>
+	
+	</footer>
 </body>
 </html>
 		
