@@ -88,7 +88,7 @@
 		//header("Location: success.php");
 		
 	if (isset($_POST["loginEmail"]) && isset($_POST["loginPassword"])
-		&& $loginEmailError=="*" && $loginPasswordError=="*"){
+		&& $loginEmailError=="Email" && $loginPasswordError=="Password"){
 		logIn($loginEmail, $loginPassword);
 		$loginEmailError=logIn($loginEmail, $loginPassword);}
 	

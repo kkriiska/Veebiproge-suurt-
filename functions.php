@@ -34,10 +34,20 @@
 	
 	function display($email){
 		$mysqli = new mysqli ($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("SELECT image FROM image WHERE user = ?");
+		$stmt = $mysqli->prepare("SELECT image FROM image WHERE user = ?  ORDER BY id DESC");
 				echo $mysqli->error;
 		$stmt->bind_param("s", $email);
 		$stmt->execute();
+		 while($row = mysqli_fetch_array($result))  
+                {  
+                     echo '  
+                          <tr>  
+                               <td>  
+                                    <img src="data:image/jpeg;base64,'.base64_encode($row['name'] ).'" height="200" width="200" class="img-thumnail" />  
+                               </td>  
+                          </tr>  
+                     ';  
+                }
 		$stmt->bind_result($image);
 		$stmt->close();
 		$mysqli->close();
@@ -99,11 +109,11 @@
 		
 	}
 
-	function deleteComment($email, $message){
+	function deleteComment($posted){
 		$mysqli = new mysqli ($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 		echo $mysqli->error;
-		$stmt = $mysqli->prepare("UPDATE music_stuff SET deleted = 1 WHERE email = ? AND message = ?"); 
-		$stmt->bind_param("si", $email, $message);
+		$stmt = $mysqli->prepare("UPDATE music_stuff SET deleted = 1 WHERE posted = ?"); 
+		$stmt->bind_param("s", $posted);
 		$stmt->execute();
 		echo $mysqli->error;
 		$stmt->close();
