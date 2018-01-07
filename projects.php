@@ -3,7 +3,7 @@ require ("functions.php");
 require ("vpconfig.php");
 error_reporting(0);
 
-<<<<<<< HEAD
+
   if(!isset ($_SESSION["userId"])) {
     header("Location: login.php");
     exit();
@@ -26,11 +26,7 @@ error_reporting(0);
   $directory = "projects/";
   $files = glob($directory . "*.pdf");
 	
-=======
-	$document = "test";
-	$user = $_SESSION[userEmail];
-	$description = "test";
-	$displayDocument = display($user);
+
 	
 if(isset ($_POST["document"]) && isset ($_POST["description"])){
 	$document = $_POST["document"];
@@ -38,7 +34,7 @@ if(isset ($_POST["document"]) && isset ($_POST["description"])){
 	uploadDocument($user, $document, $description);
 }
 echo $displayDocument;
->>>>>>> 752ea212402632b3af8ecd30c26474b43c627a84
+
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +78,7 @@ echo $displayDocument;
 <div class="container-fluid text-center">   
 <h1>Proektid</h1>
  <p>Lae proekti ülesse!</p>
-<<<<<<< HEAD
+
 <form action="uploadDocument.php" method="post" enctype="multipart/form-data">
 
 <input type="file" name="file" size="50" />
@@ -91,13 +87,7 @@ echo $displayDocument;
 
 <input type="submit" value="Upload" />
 
-=======
-<form method = "POST">
-	<input type = "file" name = "document"/>
-	<input type = "text" name = "description"/>
-	<input type = "Submit" value = "Lae ules"/>
->>>>>>> 752ea212402632b3af8ecd30c26474b43c627a84
-</form>
+
 </div>
 
 <!--
@@ -121,7 +111,7 @@ echo $displayDocument;
 
 </div>
 
-<<<<<<< HEAD
+
   <table id = "documentCount" class = "table table-striped">
     <thead>
       <tr>
@@ -139,8 +129,7 @@ echo $displayDocument;
 
   
 
-=======
->>>>>>> 752ea212402632b3af8ecd30c26474b43c627a84
+
 <?php 
 	require("footer.php");
 ?>
