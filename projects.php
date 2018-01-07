@@ -1,9 +1,19 @@
 <?php
 require ("functions.php");
 require ("vpconfig.php");
+error_reporting(0);
 
-
-
+	$document = "test";
+	$user = $_SESSION[userEmail];
+	$description = "test";
+	$displayDocument = display($user);
+	
+if(isset ($_POST["document"]) && isset ($_POST["description"])){
+	$document = $_POST["document"];
+	$description = $_POST["description"];
+	uploadDocument($user, $document, $description);
+}
+echo $displayDocument;
 ?>
 
 <!DOCTYPE html>
@@ -43,12 +53,40 @@ require ("vpconfig.php");
   </div>
 </nav>
   
-<div class="container-fluid text-center">    
+<div class="container-fluid text-center">   
+<h1>Proektid</h1>
+ <p>Lae proekti ülesse!</p>
+<form method = "POST">
+	<input type = "file" name = "document"/>
+	<input type = "text" name = "description"/>
+	<input type = "Submit" value = "Lae ules"/>
+</form>
 </div>
 
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
+<!--
+<div class="container-fluid text-center">   
+   <?php/*
+    $filenames=scandir("document");
+    $lubatud="pdf";
+    foreach($filenames as $filename){
+      $m=explode(".", $filename);
+
+      if(in_array($m[1], $lubatud)){
+        $docurl=urlencode($filename);
+        echo "<li><a href='projects.php?document=$docurl'>$filename</a></li>";
+      }
+    }*/
+   ?>
+</div>
+-->
+
+
+
+</div>
+
+<?php 
+	require("footer.php");
+?>
 
 </body>
 </html>

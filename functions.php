@@ -18,6 +18,20 @@
 		$mysqli->close();
 	}
 	
+		function uploadDocument($user, $document, $description){
+		$mysqli = new mysqli ($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("INSERT INTO document (document, description, user) VALUES(?, ?, ?)");
+		echo $mysqli->error;
+		$stmt->bind_param("sss", $document, $description, $user);
+				if ($stmt->execute()){
+			echo "\n Õnnestus!";
+		} else {
+			echo "\n Tekkis viga : " .$stmt->error;
+		}
+		$stmt->close();
+		$mysqli->close();
+	}
+	
 	function display($email){
 		$mysqli = new mysqli ($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 		$stmt = $mysqli->prepare("SELECT image FROM image WHERE user = ?");

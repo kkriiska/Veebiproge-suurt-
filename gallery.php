@@ -2,9 +2,9 @@
 <?php
 require ("functions.php");
 require ("vpconfig.php");
-
+error_reporting(0);
 	$image = "test";
-	$user = "test";
+	$user = $_SESSION[userEmail];
 	$description = "test";
 	$displayImage = display($user);
 	
@@ -51,7 +51,8 @@ echo $displayImage;
   </div>
 </nav>
   
-<div class="container-fluid text-center">    
+<div class="container-fluid text-center">  
+<h1>Galerii</h1>  
 <p>Lae pilti ülesse!</p>
 <form method = "POST">
 	<input type = "file" name = "image"/>
@@ -60,9 +61,10 @@ echo $displayImage;
 </form>
 </div>
 
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
+<?php 
+	require("footer.php");
+?>
+
 
 </body>
 </html>
