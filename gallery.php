@@ -60,9 +60,10 @@ echo $displayImage;
 </form>
 </div>
 
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
+<?php 
+	require("footer.php");
+?>
+
 
 </body>
 </html>
