@@ -2,8 +2,6 @@
 <?php
 require ("functions.php");
 require ("vpconfig.php");
-
-
   if(!isset ($_SESSION["userId"])) {
     header("Location: login.php");
     exit();
@@ -17,12 +15,9 @@ require ("vpconfig.php");
     header("Location: login.php");
     exit();
   }
-
 	$image = "test";
 	$user = $_SESSION["userEmail"];
 	$description = "test";
-
-
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -108,9 +103,7 @@ img:hover
 
 <?php
 $folder_path = 'images/'; //image's folder path
-
 $num_files = glob($folder_path . "*.{JPG,jpg,gif,png,bmp}", GLOB_BRACE);
-
 $folder = opendir($folder_path);
  
 if($num_files > 0)
