@@ -60,7 +60,7 @@
     </div>
     <div class="col-sm-8 text-left"> 
       <h1>Tere tulemast! <?php echo $_SESSION["userEmail"]  ?></h1>
-      <p>See leht on loodud selleks, et hoida enda porfooli jaoks vajalikke asju. Kui midagi oleks vaja lisada oma protfooliosse siis ma lisan selle siia ning hiljem saab korralikult panna porfooliosse. Lejht on vajalik ka selleks, et kui peaks olema olukord kus ma pean näitama oma portfooliot ja mu kõige uuemad tööd ei ole sinna ülespandud siis on neid hea näidata kuskil ilusas kohas tööandjale.</p>
+      <p>See leht on loodud selleks, et hoida enda porfooli jaoks vajalikke asju. Kui midagi oleks vaja lisada oma protfooliosse, siis ma lisan selle siia ning hiljem saab korralikult panna porfooliosse. Leht on vajalik ka selleks, et kui peaks olema olukord kus ma pean näitama oma portfooliot ja mu kõige uuemad tööd ei ole sinna ülespandud, siis on neid hea näidata kuskil ilusas kohas tööandjale.</p>
       <hr>
 	  <div class="deep-text">
 		<h3>Näidake mulle inimest, kes pole kordagi ühtegi viga teinud, ja ma näitan teile inimest, kes pole kunagi ka midagi erilist saavutanud.</h3>
