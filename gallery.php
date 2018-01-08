@@ -1,23 +1,60 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
 require ("functions.php");
 require ("vpconfig.php");
-error_reporting(0);
+  if(!isset ($_SESSION["userId"])) {
+    header("Location: login.php");
+    exit();
+  }
+  $email = $_SESSION["userId"];
+  
+  if (isset($_GET["logout"])) {
+    
+    session_destroy();
+    
+    header("Location: login.php");
+    exit();
+  }
 	$image = "test";
-	$user = $_SESSION[userEmail];
+	$user = $_SESSION["userEmail"];
 	$description = "test";
-	$displayImage = display($user);
-	
-if(isset ($_POST["image"]) && isset ($_POST["description"])){
-	$image = $_POST["image"];
-	$description = $_POST["description"];
-	upload($user, $image, $description);
-}
-echo $displayImage;
 ?>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Esileht</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<style type="text/css">
+body
+{
+ background:#fff;
+}
+img
+{
+ width:auto;
+ box-shadow:0px 0px 20px #cecece;
+ -moz-transform: scale(0.7);
+ -moz-transition-duration: 0.6s; 
+ -webkit-transition-duration: 0.6s;
+ -webkit-transform: scale(0.7);
+ 
+ -ms-transform: scale(0.7);
+ -ms-transition-duration: 0.6s; 
+}
+img:hover
+{
+  box-shadow: 20px 20px 20px #dcdcdc;
+ -moz-transform: scale(0.8);
+ -moz-transition-duration: 0.6s;
+ -webkit-transition-duration: 0.6s;
+ -webkit-transform: scale(0.8);
+ 
+ -ms-transform: scale(0.8);
+ -ms-transition-duration: 0.6s;
+ 
+}
+</style>
+
+  <title>Gallerii</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -45,7 +82,7 @@ echo $displayImage;
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="?logout=1"><span class="glyphicon glyphicon-log-in"></span> Logi välja</a></li>
       </ul>
     </div>
   </div>
@@ -53,41 +90,41 @@ echo $displayImage;
   
 <div class="container-fluid text-center">  
 <h1>Galerii</h1>  
-<p>Lae pilti ülesse!</p>
-<form method = "POST">
-	<input type = "file" name = "image"/>
-	<input type = "text" name = "description"/>
-	<input type = "Submit" value = "lae ules"/>
+
+
+
+<form action="upload.php" method="post" enctype="multipart/form-data" style="text-align: center;">
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
 </form>
+
 </div>
 
-<div class="container-fluid text-center">  
-<h2>Minu pildid</h2>
-   <?php
-    $filenames=scandir("image");
-    $allowed=array("gif", "jpg", "jpeg", "png");
-    foreach($filenames as $filename){
-      $m=explode(".", $filename);
-      if(in_array($m[1], $allowed)){
-        $imageurl=urlencode($filename);
-        echo "<li>
-            <a href='galerii.php?imagefile=$imageurl'><img 
-               src='image/$filename' class='galeriiimg' alt=''></a>
-            <a href='galerii.php?imagefile=$imageurl'><br />$filename</a>
-        </li>";
-      }
-    }
+<?php
+$folder_path = 'images/'; //image's folder path
+$num_files = glob($folder_path . "*.{JPG,jpg,gif,png,bmp}", GLOB_BRACE);
+$folder = opendir($folder_path);
+ 
+if($num_files > 0)
+{
+ while(false !== ($file = readdir($folder))) 
+ {
+  $file_path = $folder_path.$file;
+  $extension = strtolower(pathinfo($file ,PATHINFO_EXTENSION));
+  if($extension=='jpg' || $extension =='png' || $extension == 'gif' || $extension == 'bmp') 
+  {
    ?>
-  </ul>
- </div>
- <div id="sisu">
-    <?php 
-      if(isSet($_REQUEST["pildifail"])){
-        echo "<img src='pildid/$_REQUEST[pildifail]' alt=''>";
-      }      
-    ?>
-</div>
-
+            <a href="<?php echo $file_path; ?>"><img src="<?php echo $file_path; ?>"  height="250" /></a>
+            <?php
+  }
+ }
+}
+else
+{
+ echo "the folder was empty !";
+}
+closedir($folder);
+?> 
 
 <?php 
 	require("footer.php");

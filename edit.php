@@ -17,6 +17,9 @@
 		exit();
 	}
 	
+	if(isset($_POST["createdInput"])){
+		deleteComment($_POST["createdInput"]);
+	}
 	
 ?>
 
@@ -78,49 +81,35 @@
 	<h1 style = "text-align: center;">Lae üles</h1>
 	<div style="display:block">
 		<form method="POST">
-			<div class="input-group input-group-sm" style="width:100%">
-				<div class="row" id="ChatBoxEntry" style="text-align:center">
-					<textarea name="message" id="message" style="
-						color:Black;height:100px;width:50%;display:block;margin-left:auto;margin-right:auto;margin-bottom:20px">
-					</textarea> 
-  					<a href="edit.php" class="btn btn-info" role="button" style="margin-left: auto;margin-right: auto; width: 25%;">Edit</a>
-				</div>
-				<br></br>
 				<div class="row">
-					<input class="btn btn-success btn-block" style="width:25%;margin-left:auto;margin-right:auto;" type="submit" value="Submit" id = "Submit">
+					<a href="music.php" class="btn btn-info" role="button" style="margin-left: auto;margin-right: auto; width: 25%;">Back</a>
+					<form>
+					<input type="text" name="createdInput">
+					<input type="submit" name="submit">
+					</form>
 				</div>
 			</div>
 		</form>
 	</div>
 
 	<div style="overflow-x:auto">
-		<?php 
-			
-		$view = getAllDataChat($email);
 
-			$html = "<table class='table table-bordered'>";
-			
-				$html .= "<tr>";
-					$html .= "<h3>Messages</h3>";
-					$html .= "<th>Username</th>";
-					$html .= "<th>Message</th>";
-					$html .= "<th>Posted</th>";
-				$html .= "</tr>";
-				
-				foreach ($view as $v) {
-					
-					$html .= "<tr>";
-						$html .= "<td>".$v->email."</td>";
-						$html .= "<td>".$v->message."</td>";
-						$html .= "<td>".$v->posted."</td>";
-					$html .= "</tr>";
-				}
-				
-			$html .= "</table>";
-			
-			echo nl2br($html);
-			
-		?>
+
+		<table>
+			<?php 	
+			$view = getAllDataChat($email);
+			?>
+
+			<?php foreach ($view as $v):?>
+			<tr>
+				<td>
+					<?php echo $v->posted;?>
+				</td>
+			</tr>
+			<?php endforeach;?>
+		</table>
+
+
 	</div>
 
 </div>
