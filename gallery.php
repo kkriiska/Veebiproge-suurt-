@@ -61,6 +61,34 @@ echo $displayImage;
 </form>
 </div>
 
+<div class="container-fluid text-center">  
+<h2>Minu pildid</h2>
+   <?php
+    $filenames=scandir("image");
+    $allowed=array("gif", "jpg", "jpeg", "png");
+    foreach($filenames as $filename){
+      $m=explode(".", $filename);
+      if(in_array($m[1], $allowed)){
+        $imageurl=urlencode($filename);
+        echo "<li>
+            <a href='galerii.php?imagefile=$imageurl'><img 
+               src='image/$filename' class='galeriiimg' alt=''></a>
+            <a href='galerii.php?imagefile=$imageurl'><br />$filename</a>
+        </li>";
+      }
+    }
+   ?>
+  </ul>
+ </div>
+ <div id="sisu">
+    <?php 
+      if(isSet($_REQUEST["pildifail"])){
+        echo "<img src='pildid/$_REQUEST[pildifail]' alt=''>";
+      }      
+    ?>
+</div>
+
+
 <?php 
 	require("footer.php");
 ?>
