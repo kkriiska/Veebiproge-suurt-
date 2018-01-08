@@ -2,6 +2,7 @@
 	
 	require("functions.php");
 	require("vpconfig.php");
+
 	
 	if(!isset ($_SESSION["userId"])) {
 		header("Location: login.php");
@@ -30,6 +31,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
+   <link rel="stylesheet" type="text/css" href="style_tables.css">
 </head>
 <body>
 
@@ -83,11 +85,21 @@
 					<textarea name="message" id="message" style="
 						color:Black;height:100px;width:50%;display:block;margin-left:auto;margin-right:auto;margin-bottom:20px">
 					</textarea> 
-  					<a href="edit.php" class="btn btn-info" role="button" style="margin-left: auto;margin-right: auto; width: 25%;">Edit</a>
+  					<a href="edit.php" class="btn btn-info" role="button" style="margin-left: auto;margin-right: auto; width: 25%; 		text-align: center !important;
+		color: white;
+		padding:5px 15px;
+		margin: auto;
+		background: orange !important; 
+		border-style: solid;
+		border-width: 1px;
+		border-color: black;
+		cursor:pointer;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;">Kustuta</a>
 				</div>
 				<br></br>
 				<div class="row">
-					<input class="btn btn-success btn-block" style="width:25%;margin-left:auto;margin-right:auto;" type="submit" value="Submit" id = "Submit">
+					<input class="btn btn-success btn-block" style="width:25%;margin-left:auto;margin-right:auto;" type="submit" value="Kinnita" id = "Submit">
 				</div>
 			</div>
 		</form>

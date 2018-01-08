@@ -1,3 +1,4 @@
+
  /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
@@ -35,8 +36,10 @@
 	}
 	
 	.deep-text {
-	padding: 30px;
-    color: black;
-    background-color: orange;
+		padding: 30px;
+		color: black;
+		background-color: orange;
 	}
+	
+
 	

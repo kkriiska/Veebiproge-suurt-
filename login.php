@@ -136,7 +136,7 @@
 		<input name="signupPassword" placeholder="Parool" type="password"><?php echo $signupPasswordError ?>
 		<br><br>	
 
-		<input type= "submit" value="Loo kasutaja">
+		<input type= "submit" value="Loo kasutaja" style="color: white">
 		</div>
 	</form>
 	<footer class="footer_text">

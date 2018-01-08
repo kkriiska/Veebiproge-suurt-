@@ -40,7 +40,7 @@ echo $displayDocument;
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Esileht</title>
+  <title>Projektid</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -63,31 +63,31 @@ echo $displayDocument;
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="data.php">Esileht</a></li>
-        <li class="active"><a href="projects.php">Projects</a></li>
+        <li class="active"><a href="projects.php">Projektid</a></li>
         <li><a href="gallery.php">Galerii</a></li>
 		<li><a href="music.php">Muusika</a></li>
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logi välja</a></li>
       </ul>
     </div>
   </div>
 </nav>
   
 <div class="container-fluid text-center">   
-<h1>Proektid</h1>
- <p>Lae proekti ülesse!</p>
+<h1>Projektid</h1>
+ <p>Lae projekt üles!</p>
 
 <form action="uploadDocument.php" method="post" enctype="multipart/form-data">
-
-<input type="file" name="file" size="50" />
+<div class="button">
+<input type="file" name="file" size="0" />
 
 <br />
 
-<input type="submit" value="Upload" />
+<input type="submit" value="Lae üles" />
 
-
+</div>
 </div>
 
 <!--

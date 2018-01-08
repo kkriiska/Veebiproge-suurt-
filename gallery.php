@@ -59,13 +59,14 @@ img:hover
 }
 </style>
 
-  <title>Gallerii</title>
+  <title>Galerii</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="style_tables.css">
 </head>
 <body>
 
@@ -81,7 +82,7 @@ img:hover
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="data.php">Esileht</a></li>
-        <li><a href="projects.php">Projects</a></li>
+        <li><a href="projects.php">Projektid</a></li>
         <li class="active"><a href="#">Galerii</a></li>
 		<li><a href="music.php">Muusika</a></li>
 

@@ -42,13 +42,13 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="data.php">Esileht</a></li>
-        <li><a href="projects.php">Projects</a></li>
+        <li><a href="projects.php">Projektid</a></li>
         <li><a href="gallery.php">Galerii</a></li>
 		<li><a href="music.php">Muusika</a></li>
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="?logout=1"><span class="glyphicon glyphicon-log-in"></span> Logi välja</a></li>
+        <li><a href="?logout=1"><span class="glyphicon glyphicon-log-in style=""></span> Logi välja</a></li>
       </ul>
     </div>
   </div>
