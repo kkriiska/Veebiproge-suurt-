@@ -108,7 +108,7 @@
 	</div>
 	<form method="POST">
 		<div class="login_person">
-		<input name="loginEmail" type="email" placeholder= <?php echo $loginPasswordError; ?> value="<?php echo $loginEmail; ?>">
+		<input name="loginEmail" type="email" placeholder="Email" value="<?php echo $loginEmail; ?>">
 		<br><br>
 		<input name ="loginPassword" type="password" placeholder ="Parool"><?php echo $loginPasswordError ?>
 		<br><br>
@@ -141,7 +141,7 @@
 	</form>
 	<footer class="footer_text">
 
-	<p>Karolin Kriiska if16 & Tatjana Kuznetsova if15</p>
+	<p>Karolin Kriiska if16</p>
 	
 	</footer>
 </body>
